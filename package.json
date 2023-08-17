@@ -1,0 +1,88 @@
+{
+  "name": "sunrise",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://travis-ci.org/commercetools/commercetools-sunrise-data.svg?branch=master)](https://travis-ci.org/commercetools/commercetools-sunrise-data)",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint ./lib/**",
+    "build": "rimraf dist/ && babel ./lib/*.js --out-dir dist/lib/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "clean:data": "npm run build && node dist/lib/data.js --all:clean",
+    "import:data": "npm run build && node dist/lib/data.js --all:import",
+    "ci": "npm run build && node dist/lib/ci.js --start",
+    "import:projectSetup": "npm run build && node dist/lib/project-setup.js --import",
+    "import:categories": "npm run build && node dist/lib/categories.js --import --csv ./data/categories.csv",
+    "import:orders": "npm run build && node dist/lib/orders.js --import --csv ./data/orders.csv",
+    "import:channels": "npm run build && node dist/lib/channels.js --import",
+    "import:zones": "npm run build && node dist/lib/zones.js --import",
+    "import:taxCategories": "npm run build && node dist/lib/tax-categories.js --import",
+    "import:shippingmethods": "npm run build && node dist/lib/shipping-method.js --import",
+    "import:products": "npm run build && node dist/lib/products.js --importtypes --types ./data/product-type.json && node dist/lib/products.js --import  --categories ./data/categories.csv  --csv ./data/products.csv --types ./data/product-type.json",
+    "import:inventory": "npm run build && node dist/lib/inventory.js --import",
+    "import:inventory-stores": "npm run build && node dist/lib/inventory.js --import",
+    "import:customers": "npm run build && node dist/lib/customers.js --import",
+    "import:types": "npm run build && node dist/lib/types.js --import",
+    "import:states": "npm run build && node dist/lib/lineitem-states.js --import",
+    "clean:categories": "npm run build && node dist/lib/categories.js --clean",
+    "clean:inventory": "npm run build && node dist/lib/inventory.js --clean",
+    "clean:channels": "npm run build && node dist/lib/channels.js --clean",
+    "clean:orders": "npm run build && node dist/lib/orders.js --clean",
+    "clean:carts": "npm run build && node dist/lib/carts.js --clean",
+    "clean:states": "npm run build && node dist/lib/lineitem-states.js --clean",
+    "clean:customers": "npm run build && node dist/lib/customers.js --clean",
+    "clean:shippingmethods": "npm run build && node dist/lib/shipping-method.js --clean",
+    "clean:zones": "npm run build && node dist/lib/zones.js --clean",
+    "clean:products": "npm run build && node dist/lib/products.js --clean",
+    "clean:taxCategories": "npm run build && node dist/lib/tax-categories.js --clean",
+    "clean:types": "npm run build && node dist/lib/types.js --clean",
+    "start": "npm run build && node dist/lib/data.js --start",
+    "lint": "prettier --write ./lib/** && eslint --fix ./lib/**"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commercetools/commercetools-sunrise-data.git"
+  },
+  "keywords": [
+    "sunrise",
+    "commercetools",
+    "data"
+  ],
+  "author": "Siawash Shibani",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/commercetools/commercetools-sunrise-data/issues"
+  },
+  "homepage": "https://github.com/commercetools/commercetools-sunrise-data#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
+    "@babel/preset-env": "^7.7.6",
+    "@commercetools/api-request-builder": "5.6.3",
+    "@commercetools/sdk-client": "2.1.2",
+    "@commercetools/sdk-middleware-auth": "6.1.4",
+    "@commercetools/sdk-middleware-http": "6.0.11",
+    "babel-eslint": "^10.0.3",
+    "braces": "^3.0.2",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.3.1",
+    "fstream": "^1.0.12",
+    "nconf": "^0.11.4",
+    "path": "0.12.7",
+    "prettier": "^2.0.5",
+    "rimraf": "3.0.2",
+    "snazzy": "9.0.0"
+  },
+  "dependencies": {
+    "@commercetools/sdk-auth": "^3.0.7",
+    "cli-progress": "^3.4.0",
+    "core-js": "3",
+    "csvtojson": "^2.0.10",
+    "es6-promise": "^4.2.8",
+    "eslint-plugin-import": "^2.20.0",
+    "isomorphic-fetch": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=10"
+  }
+}
