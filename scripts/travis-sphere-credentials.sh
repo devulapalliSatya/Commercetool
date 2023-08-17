@@ -1,11 +1,11 @@
 cat > "travis-payload.json" << EOF
 {
   "commercetools": {
-    "projectKey": "$PROJECT_KEY",
-    "clientId": "$CLIENT_ID",
-    "clientSecret": "$CLIENT_SECRET",
-    "authUrl": "https://auth.sphere.io",
-    "apiUrl": "https://api.sphere.io"
+    "projectKey": "satya-devulapalli",
+    "clientId": "Xk_C8zL2J6ptftAvrNa1su_T",
+    "clientSecret": "fGsy-HRSEf_izx_6D9tiWploMSg6FHHg",
+    "authUrl": "https://auth.australia-southeast1.gcp.commercetools.com",
+    "apiUrl": "https://api.australia-southeast1.gcp.commercetools.com"
   },
   "jobs": [
   ]
@@ -13,9 +13,9 @@ cat > "travis-payload.json" << EOF
 EOF
 
 cat > "src/test/resources/test.properties" << EOF
-commercetools.projectKey=$PROJECT_KEY
-commercetools.clientId=$CLIENT_ID
-commercetools.clientSecret=$CLIENT_SECRET
-commercetools.authUrl=https://auth.sphere.io
-commercetools.apiUrl=https://api.sphere.io
+commercetools.projectKey= satya-devulapalli
+commercetools.clientId= Xk_C8zL2J6ptftAvrNa1su_T
+commercetools.clientSecret= fGsy-HRSEf_izx_6D9tiWploMSg6FHHg
+commercetools.authUrl= https://auth.australia-southeast1.gcp.commercetools.com
+commercetools.apiUrl= https://api.australia-southeast1.gcp.commercetools.com
 EOF

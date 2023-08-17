@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "eslint ./lib/**",
-    "build": "rimraf dist/ && babel ./lib/*.js --out-dir dist/lib/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "server-build": "rimraf dist/ && babel ./lib/*.js --out-dir dist/lib/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
     "clean:data": "npm run build && node dist/lib/data.js --all:clean",
     "import:data": "npm run build && node dist/lib/data.js --all:import",
     "ci": "npm run build && node dist/lib/ci.js --start",
@@ -34,8 +34,9 @@
     "clean:products": "npm run build && node dist/lib/products.js --clean",
     "clean:taxCategories": "npm run build && node dist/lib/tax-categories.js --clean",
     "clean:types": "npm run build && node dist/lib/types.js --clean",
-    "start": "npm run build && node dist/lib/data.js --start",
-    "lint": "prettier --write ./lib/** && eslint --fix ./lib/**"
+    "start": "node dist/lib/data.js --start",
+    "lint": "prettier --write ./lib/** && eslint --fix ./lib/**",
+    "build": "npm run build"
   },
   "repository": {
     "type": "git",
